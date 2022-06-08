@@ -88,7 +88,18 @@ function displayPhrases() {
     phraseList.innerHTML = '';
 
     // ** Create an li for each phrase and append to the list
+    for (const phrase in character.phrases) {
+        const item = document.createAttribute('li');
+        item.textContent = phrase;
+        phraseList.append(item);
+        console.log(phraseList);
+        console.log(character.phrases);
+    }
 }
+console.log(phraseList);
+console.log(character.phrases);
+console.log(phrasesSection);
+console.log();
 
 // page load actions
 function displayDesign() {
