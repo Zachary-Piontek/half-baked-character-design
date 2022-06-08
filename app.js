@@ -26,7 +26,7 @@ middleSelect.addEventListener('change', () => {
     displayDesign();
 });
 
-console.log(middleSelect);
+
 
 pantsSelect.addEventListener('change', () => {
     // *** Complete the pants select change handler
@@ -40,24 +40,32 @@ function displayDesigner() {
     middleSelect.value = character.middle;
     pantsSelect.value = character.pants;
 }
-console.log(character);
-console.log(pantsSelect);
+
 
 // AddPhrase
 const addPhraseSection = document.getElementById('add-phrase-section');
 const phraseInput = addPhraseSection.querySelector('input');
 // *** Select the button from the add phrase section
 // const phraseButton = ?;
+const phraseButton = addPhraseSection.querySelector('button');
 
 function handleAddPhrase() {
     // *** add the current phrase value to the character phrases
-
+    const phrase = phraseInput.value;
+    if (phrase === false) {
+        return;
+    }
+    
+    character.phrases.push(phrase);
     displayPhrases();
     phraseInput.value = '';
     phraseInput.focus();
 }
 
 // *** Add a click handler to the phrase button that calls handleAddPhrase
+phraseButton.addEventListener('click', () => {
+    handleAddPhrase();
+});
 
 phraseInput.addEventListener('keypress', (e) => {
     if (e.key === 'Enter') {
@@ -78,8 +86,7 @@ function displayCharacter() {
     middleImage.src = 'assets/character/' + character.middle + '-middle.png';
     pantsImage.src = 'assets/character/' + character.pants + '-pants.png';
 }
-console.log(headImage);
-console.log(pantsImage);
+
 
 // Phrases
 const phrasesSection = document.getElementById('phrases-section');
@@ -89,18 +96,14 @@ function displayPhrases() {
     phraseList.innerHTML = '';
 
     // ** Create an li for each phrase and append to the list
-    for (const phrase in character.phrases) {
-        const item = document.createAttribute('li');
-        item.textContent = phrase;
-        phraseList.append(item);
-        console.log(phraseList);
-        console.log(character.phrases);
+    for (const phrase of character.phrases) {
+        const list = document.createElement('li');
+        list.textContent = phrase;
+        phraseList.append(list);
+
     }
 }
-console.log(phraseList);
-console.log(character.phrases);
-console.log(phrasesSection);
-console.log();
+
 
 // page load actions
 function displayDesign() {
