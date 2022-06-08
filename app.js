@@ -19,9 +19,15 @@ headSelect.addEventListener('change', () => {
     displayDesign();
 });
 
+console.log(headSelect);
+console.log(character);
+console.log(displayDesign());
+
 middleSelect.addEventListener('change', () => {
     // *** Complete the middle select change handler
 });
+
+console.log(middleSelect);
 
 pantsSelect.addEventListener('change', () => {
     // *** Complete the pants select change handler
@@ -67,7 +73,12 @@ function displayCharacter() {
     // You can use:
     // 'assets/character/' + <get prop value here> + '-head.png'
     // to format the correct file name
+    headImage.src = 'assets/character/' + character.head + '-head.png';
+    middleImage.src = 'assets/character/' + character.middle + '-middle.png';
+    pantsImage.src = 'assets/character/' + character.pants + '-pants.png';
 }
+console.log(headImage);
+console.log(pantsImage);
 
 // Phrases
 const phrasesSection = document.getElementById('phrases-section');
