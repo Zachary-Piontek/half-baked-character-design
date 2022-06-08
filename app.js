@@ -19,18 +19,19 @@ headSelect.addEventListener('change', () => {
     displayDesign();
 });
 
-console.log(headSelect);
-console.log(character);
-console.log(displayDesign());
 
 middleSelect.addEventListener('change', () => {
     // *** Complete the middle select change handler
+    character.middle = middleSelect.value;
+    displayDesign();
 });
 
 console.log(middleSelect);
 
 pantsSelect.addEventListener('change', () => {
     // *** Complete the pants select change handler
+    character.pants = pantsSelect.value;
+    displayDesign();
 });
 
 function displayDesigner() {
