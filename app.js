@@ -30,7 +30,11 @@ pantsSelect.addEventListener('change', () => {
 function displayDesigner() {
     headSelect.value = character.head;
     // *** Assign the initial values of the middle select and pants select!
+    middleSelect.value = character.middle;
+    pantsSelect.value = character.pants;
 }
+console.log(character);
+console.log(pantsSelect);
 
 // AddPhrase
 const addPhraseSection = document.getElementById('add-phrase-section');
